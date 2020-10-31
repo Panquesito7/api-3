@@ -10,5 +10,9 @@ app.use(express.urlencoded({extended: true}));
 
 // create routes 
 
+app.get('/',(req,res) => {
+    res.status(200).send('Techphantoms API');
+})
+
 
 module.exports = app
