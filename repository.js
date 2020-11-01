@@ -1,8 +1,9 @@
-const { Github } = require('./lib')
+const { Github, Airtable } = require('./lib')
 
 class Repo {
     constructor() {
         this.github = new Github();
+        this.airtable = new Airtable();
     }
 }
 
