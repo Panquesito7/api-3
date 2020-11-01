@@ -7,5 +7,9 @@ module.exports = {
         bases: {
             team: process.env.TEAM_BASE
         }
+    },
+    mailjet: {
+        api_key: process.env.MAILJET_API_KEY,
+        secret_key: process.env.MAILJET_SECRET_KEY
     }
 }
