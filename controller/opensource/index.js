@@ -1,6 +1,4 @@
-const Job = require('../../repository');
-
-const job = new Job();
+const job = require('../../repository');
 
 const fetchAllOrgRepo = async (req, res) => {
     try {

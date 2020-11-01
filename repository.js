@@ -7,4 +7,4 @@ class Repo {
     }
 }
 
-module.exports = Repo;
+module.exports = new Repo;
