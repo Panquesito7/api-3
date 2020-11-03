@@ -2,7 +2,7 @@ const Axios = require('axios').default
 const { airtable } = require('../config')
 const { CoreTeam } = require('./team.entity')
 
-module.exports = class Service {
+class Service {
     constructor() {
         this.Base_URL = `https://api.airtable.com/v0/${airtable.bases.team}`
     }
@@ -16,7 +16,20 @@ module.exports = class Service {
                 },
                 method: 'GET'
             });
-            return data.data
+
+            return data.data.records.map(el => CoreTeam({
+                id: el.id,
+                name: el.fields.name,
+                email: el.fields.email,
+                mobile: el.fields.mobile,
+                position: el.fields.position,
+                linkedin_profile: el.fields.linkedin_profile,
+                github_profile: el.fields.github_profile,
+                instagram_profile: el.fields.instagram_profile,
+                medium_profile: el.fields.medium_profile,
+                gender: el.fields.gender,
+                avatar_url: el.fields.avatar_url
+            }))
 
         } catch (error) {
             throw error
@@ -24,3 +37,5 @@ module.exports = class Service {
     }
 
 }
+
+module.exports = new Service()
