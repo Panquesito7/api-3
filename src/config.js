@@ -11,5 +11,8 @@ module.exports = {
         api_key: process.env.MAILJET_API_KEY,
         secret_key: process.env.MAILJET_SECRET_KEY,
         mail: 'opensource@techphantoms.tech'
+    },
+    github: {
+        org_api_url: 'https://api.github.com/orgs/Tech-Phantoms'
     }
 }
