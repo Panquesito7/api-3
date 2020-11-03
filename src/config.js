@@ -4,7 +4,8 @@ module.exports = {
     airtable: {
         api_key: process.env.AIRTABLE_API_KEY,
         bases: {
-            team: process.env.TEAM_BASE
+            team: process.env.TEAM_BASE,
+            event: process.env.EVENT_BASE
         }
     },
     mailjet: {

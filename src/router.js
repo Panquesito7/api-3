@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const team = require('./team');
-const os = require('./opensource')
+const os = require('./opensource');
+const events = require('./events');
 
 
 
@@ -18,5 +19,9 @@ router.route('/os/details')
 
 router.route('/os/public_repos')
     .get(os.fetchAllRepos);
+
+// Events routs 
+router.route('/events')
+    .get(events.fetchAllEvent);
 
 module.exports = router
