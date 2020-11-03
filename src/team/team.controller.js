@@ -14,6 +14,4 @@ class TeamController {
     }
 }
 
-const controller = new TeamController();
-
-module.exports = controller;
+module.exports = new TeamController();
