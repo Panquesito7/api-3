@@ -2,7 +2,12 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Node.js app to Azure Web App - techphantomsapi
-
+env:
+  AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+  TEAM_BASE: ${{ secrets.TEAM_BASE }}
+  EVENT_BASE: ${{ secrets.EVENT_BASE }}
+  MAILJET_API_KEY: ${{ secrets.EVENT_BASE }}
+  MAILJET_SECRET_KEY: ${{ secrets.MAILJET_SECRET_KEY }}  
 on:
   push:
     branches:
