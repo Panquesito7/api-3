@@ -1,3 +1,4 @@
+const emailClient = require('./mail.service');
 
 const sendEventInvite = async (users,eventDetails) => {
     /**
