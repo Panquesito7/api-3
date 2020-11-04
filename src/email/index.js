@@ -1,5 +1,5 @@
 
-const sendEventInvite = async () => {
+const sendEventInvite = async (users,eventDetails) => {
     /**
      * Will send email invites to all the users 
      * who have RSVP the event.
