@@ -7,7 +7,6 @@ class Service {
     constructor() {
         this.BASE_URL = github.org_api_url
     }
-
     async ownedPublicRepos() {
         try {
             let data = await Axios({
