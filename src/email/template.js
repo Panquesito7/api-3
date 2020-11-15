@@ -8,7 +8,7 @@ exports.inviteTemplate = `
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 </html>
 `
