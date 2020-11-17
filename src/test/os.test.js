@@ -16,7 +16,6 @@ describe('OS routes', () => {
 })
 
 describe('OS Response paramters', () => {
-
     it('checking for details in the response', async () => {
         let res = await request.get('/os/details');
         expect(res.body.login).toMatch(/Tech-Phantoms/);
