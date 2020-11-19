@@ -5,7 +5,7 @@ const request = superTest(app);
 
 describe('OS routes', () => {
     it('/os/details', async () => {
-        let res = await request.get('/os/details')
+        let res = await request.get('/os/details');
         expect(res.status).toBe(200);
     })
 
