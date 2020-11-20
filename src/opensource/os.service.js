@@ -15,7 +15,7 @@ class Service {
             })
 
             return data.data.map (el => {
-                if(el.private === false){
+                if(el.private === false && el.fork === false){
                     return PublicRepos({
                         name: el.name,
                         html_url: el.html_url,
