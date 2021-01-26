@@ -15,5 +15,8 @@ module.exports = {
     },
     github: {
         org_api_url: 'https://api.github.com/orgs/Tech-Phantoms'
+    },
+    mongo: {
+        uri: process.env.MONGO_URI
     }
 }
