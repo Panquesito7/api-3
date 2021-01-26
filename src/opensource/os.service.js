@@ -7,7 +7,6 @@ class Service {
     constructor() {
         this.BASE_URL = github.org_api_url
     }
-
     async ownedPublicRepos() {
         try {
             let data = await Axios({
@@ -16,7 +15,7 @@ class Service {
             })
 
             return data.data.map (el => {
-                if(el.private === false){
+                if(el.private === false || el.fork === false){
                     return PublicRepos({
                         name: el.name,
                         html_url: el.html_url,
