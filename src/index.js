@@ -1,6 +1,16 @@
 const app = require('./server');
-const { port } = require('./config')
+const { port, mongo } = require('./config');
+const mongoose = require('mongoose');
 
-app.listen(port, () => {
-    console.log(`server started at port ${port}`)
-});
+
+mongoose.connect(mongo.uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    app.listen(port, () => {
+        console.log(`server started at port ${port}`)
+    });
+}).catch(err => {
+    console.error(err);
+})
+
