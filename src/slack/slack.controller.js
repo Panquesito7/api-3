@@ -1,10 +1,10 @@
 const Slack = require('slack');
 const Axios = require('axios').default;
-const {slack} = require('../config')
+const { slack } = require('../config')
 
-const invite = async (req,res) => {
-    const {email} = req.body;
-    let INVITE_URL="https://slack.com/api/admin.users.invite";
+const invite = async (req, res) => {
+    const { email } = req.body;
+    let INVITE_URL = "https://slack.com/api/admin.users.invite";
     try {
         let res = await Axios({
             url: INVITE_URL,
@@ -16,7 +16,7 @@ const invite = async (req,res) => {
             }
         });
 
-        console.log(res.data)
+        return res.status(201).json(res.data);
     } catch (error) {
         console.log(error)
         return res.status(404).send(error);
