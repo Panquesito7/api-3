@@ -1,4 +1,4 @@
-const slackRoutes = require('./router');
+const slackRoutes = require('./routes');
 
 
 module.exports = {
