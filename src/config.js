@@ -18,5 +18,10 @@ module.exports = {
     },
     mongo: {
         uri: process.env.MONGO_URI
+    },
+    slack: {
+        bot_token: process.env.SLACK_BOT_TOKEN,
+        team_id: process.env.SLACK_TEAM_ID,
+        general_channel_id: process.env.SLACK_GENERAL_CHANNEL_ID
     }
 }

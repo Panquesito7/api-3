@@ -2,6 +2,7 @@ const router = require('express').Router();
 const team = require('./team');
 const os = require('./opensource');
 const events = require('./events');
+const {slackRoutes} = require('./slack')
 
 
 
@@ -23,5 +24,9 @@ router.route('/os/public_repos')
 // Events routs 
 router.route('/events')
     .get(events.fetchAllEvent);
+
+
+// Slack Routes 
+router.use('/slack', slackRoutes);
 
 module.exports = router
