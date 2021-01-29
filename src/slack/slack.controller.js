@@ -23,7 +23,30 @@ const invite = async (req, res) => {
     }
 }
 
+const projects = async (req,res) => {
+    let URL = "https://api.github.com/orgs/Tech-Phantoms/repos";
+
+    console.log(req.body);
+    
+    try {
+        const res = await Axios({
+            url: URL,
+            method: 'GET'
+        });
+        let response = `> Check out our projects: \n`;
+        res.data.forEach(el => {
+            if(el.private === false){
+                response = response + `* ${el.name} - ${el.html_url} \n`;
+            }
+        })
+        res.send(response);
+    } catch (error) {
+        return res.status(404).send(error);
+    }
+}
+
 
 module.exports = {
-    invite
+    invite,
+    projects
 }
