@@ -9,8 +9,8 @@ router.post('/invite', invite)
 
 
 // slash commands 
-router.post('/commands/mine',(req,res) => {
-    
+router.post('/commands/mine', (req, res) => {
+
 });
 
 
