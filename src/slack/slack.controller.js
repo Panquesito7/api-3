@@ -27,7 +27,7 @@ const projects = async (req,res) => {
     let URL = "https://api.github.com/orgs/Tech-Phantoms/repos";
 
     console.log(req.body);
-    
+    res.send();
     try {
         const res = await Axios({
             url: URL,
@@ -39,8 +39,14 @@ const projects = async (req,res) => {
                 response = response + `* ${el.name} - ${el.html_url} \n`;
             }
         })
-        res.send(response);
+        Slack.chat.postMessage({
+            token: slack.bot_token,
+            channel: 'random',
+            text: response
+        });
+        //res.send(response);
     } catch (error) {
+        console.log(error)
         return res.status(404).send(error);
     }
 }
