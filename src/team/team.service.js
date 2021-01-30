@@ -21,7 +21,6 @@ class Service {
                 id: el.id,
                 name: el.fields.name,
                 email: el.fields.email,
-                mobile: el.fields.mobile,
                 position: el.fields.position,
                 linkedin_profile: el.fields.linkedin_profile,
                 github_profile: el.fields.github_profile,
