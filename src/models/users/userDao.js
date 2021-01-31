@@ -1,30 +1,30 @@
-const userModel = require('./schema');
+const { userModel } = require('./schema');
 const User = require('./user');
 
 class UserDao {
-    constructor(){
+    constructor() {
 
     }
 
-    async create({username, password}){
+    async create({ username, password }) {
         try {
-            let res = new userModel({username, password});
+            let res = new userModel({ username, password });
             await res.save();
-            let user = new User({id: res._id, username: res.username, password: res.password});
+            let user = new User({ id: res._id, username: res.username, password: res.password });
             return user;
         } catch (error) {
             throw error;
         }
     }
 
-    async findOne(param){
+    async findOne(param) {
         try {
             let res = await userModel.findOne(param);
-            if(!res){
+            if (!res) {
                 throw "No such entry"
             }
 
-            let user = new User({id: res._id, username: res.username, password: res.password});
+            let user = new User({ id: res._id, username: res.username, password: res.password });
 
             return user;
 
