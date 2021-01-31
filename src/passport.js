@@ -8,7 +8,12 @@ passport.use(new LocalStrategy({
 }, async (username, password, done) => {
     try {
         let user = await User.findOne({username: username});
-        
+        let isSame = await user.verifyPassword(password);
+        if(!isSame) {
+            return done(null, false);
+        }
+
+        return done(null, true);
 
     } catch (error) {
         return done(error);
