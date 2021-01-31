@@ -8,8 +8,7 @@ class UserDao {
 
     async create({ username, password }) {
         try {
-            let res = new userModel({ username, password });
-            await res.save();
+            let res = new userModel.create({username,password});
             let user = new User({ id: res._id, username: res.username, password: res.password });
             return user;
         } catch (error) {
