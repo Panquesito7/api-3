@@ -45,6 +45,14 @@ class UserDao {
             throw error
         }
     }
+    async findById(id){
+        try {
+            let res = await userModel.findById(id);
+            return new User({id: res._id, username: res.username, password: res.password});
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = UserDao;
