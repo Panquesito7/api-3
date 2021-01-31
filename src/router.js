@@ -2,7 +2,8 @@ const router = require('express').Router();
 const team = require('./team');
 const os = require('./opensource');
 const events = require('./events');
-const {slackRoutes} = require('./slack')
+const { slackRoutes } = require('./slack')
+const { authRouter } = require('./oauth')
 
 
 
@@ -28,5 +29,7 @@ router.route('/events')
 
 // Slack Routes 
 router.use('/slack', slackRoutes);
+
+router.use('/auth', authRouter);
 
 module.exports = router
