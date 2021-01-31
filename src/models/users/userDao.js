@@ -1,5 +1,7 @@
 const { userModel } = require('./schema');
 const User = require('./user');
+const bcrypt = require('bcrypt');
+
 
 class UserDao {
     constructor() {
@@ -8,9 +10,21 @@ class UserDao {
 
     async create({ username, password }) {
         try {
-            let res = new userModel.create({username,password});
-            let user = new User({ id: res._id, username: res.username, password: res.password });
+            let res = await userModel.findOne({username});
+            if(res){
+                throw "username already exists"
+            }
+            const hashedPassword = await bcrypt.hash(password, 10);
+            let nUser = await userModel.create({username, password: hashedPassword});
+
+            let user = new User({
+                id: nUser._id,
+                username: nUser.username,
+                password: nUser.password
+            });
+
             return user;
+
         } catch (error) {
             throw error;
         }
