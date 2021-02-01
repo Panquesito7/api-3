@@ -4,15 +4,16 @@ const {
     projects
 } = require('./slack.controller');
 
-// 
+// Slash commands
+const {
+    mine
+} = require('./slack.slash') 
 
 router.post('/invite', invite)
 
 
 // slash commands 
-router.post('/commands/mine', (req, res) => {
-
-});
+router.post('/commands/mine', mine);
 
 router.post('/commands/projects', projects);
 
