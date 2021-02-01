@@ -15,7 +15,7 @@ const mine = async (req, res) => {
 
 const coinGenerator = () => {
     const coinPool = [10, 10, 10, 10, 10, 10, 10, 50, 50, 50, 50, 50, , 100, 100, 100, 100];
-    let n = Math.floor(Math.random() * coinPool.length) + 1;
+    let n = Math.floor(Math.random() * (coinPool.length-1)) + 1;
     return coinPool[n];
 }
 
