@@ -7,7 +7,7 @@ const {
 // Slash commands
 const {
     mine
-} = require('./slack.slash')
+} = require('./slack.slash');
 
 router.post('/invite', invite)
 
