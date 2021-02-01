@@ -47,6 +47,26 @@ class BankDAO {
         }
     }
 
+    async transfer({from,to,balance}){
+        //check if both party has account 
+        try {
+            let accs = await bankModel.find({$and: [{user_id: from}, {user_id: to}]});
+            //check if both exists 
+            if(!accs){
+                throw "Invalid Transaction"
+            }
+            if(accs[0].balance < balance){
+                throw "Insuficient Balance"
+            }
+
+            // transfer the money
+            
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
 
 module.exports = new BankDAO();
