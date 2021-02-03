@@ -67,6 +67,34 @@ class BankDAO {
         }
     }
 
+    async getAccount(id){
+        try {
+            let acc = await bankModel.findById(id);
+            if(acc){
+                return new Bank({
+                    id: acc._id,
+                    userId: acc.userId,
+                    balance: acc.balance,
+                    lastMined: acc.lastMined
+                });
+            }
+            let newAcc = await bankModel.create({
+                userId: id,
+                balance: 0,
+                lastMined: new Date
+            });
+
+            return new Bank({
+                id: newAcc._id,
+                userId: newAcc.userId,
+                balance: newAcc.balance,
+                lastMined: newAcc.lastMined
+            })
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
 module.exports = new BankDAO();
