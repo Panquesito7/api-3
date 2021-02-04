@@ -16,9 +16,9 @@ const mine = async (req, res) => {
 
         await acc.updateBalance(coins, 'credit');
 
-        res.send(`> :tada: Found _${coins} tp_ :tada: 
-    > <@${req.body.user_id}|user> _${coins}_ tp is being added to your account :tada:
-    `)
+    //     res.send(`> :tada: Found _${coins} tp_ :tada: 
+    // > <@${req.body.user_id}|user> _${coins}_ tp is being added to your account :tada:
+    // `)
 
     slack.chat.postEphemeral({
         token: config.slack.bot_token,
@@ -41,8 +41,6 @@ const mine = async (req, res) => {
             res.staus(404).send(error)
         }
     }
-
-
 }
 
 const coinGenerator = () => {
