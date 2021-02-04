@@ -20,7 +20,7 @@ class Bank {
         }
 
         try {
-            let res = await bankModel.findByIdAndUpdate(this.user_id, {balance: newBalance});
+            let res = await bankModel.findByIdAndUpdate(this.id, {balance: newBalance}, {upsert: true});
             this.balance = newBalance;
         } catch (error) {
             throw error;

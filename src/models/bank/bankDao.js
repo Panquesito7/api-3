@@ -69,7 +69,8 @@ class BankDAO {
 
     async getAccount(id){
         try {
-            let acc = await bankModel.findById(id);
+            let acc = await bankModel.findOne({user_id: id});
+            console.log(acc);
             if(acc){
                 return new Bank({
                     id: acc._id,
@@ -79,7 +80,7 @@ class BankDAO {
                 });
             }
             let newAcc = await bankModel.create({
-                userId: id,
+                user_id: id,
                 balance: 0,
                 lastMined: new Date
             });
