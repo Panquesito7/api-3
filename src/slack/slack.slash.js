@@ -16,16 +16,12 @@ const mine = async (req, res) => {
 
         await acc.updateBalance(coins, 'credit');
 
-    //     res.send(`> :tada: Found _${coins} tp_ :tada: 
-    // > <@${req.body.user_id}|user> _${coins}_ tp is being added to your account :tada:
-    // `)
-
     slack.chat.postEphemeral({
         token: config.slack.bot_token,
         channel: req.body.channel_name,
         user: req.body.user_id,
         text: `> :tada: Found _${coins} tp_ :tada: 
-        > <@${req.body.user_id}|user> current account balance id _${acc.balance}_
+        > <@${req.body.user_id}|user> current account balance is _${acc.balance}_
         `
     })
 
